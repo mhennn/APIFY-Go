@@ -40,3 +40,15 @@ def get_simple_data(self):
 
 ### Ideal Usage
 The program is design for simple dataset with no nested dict, but can be expanded.
+
+### Testing the API
+```bash
+from request_module.request_params import RequestParam
+
+def test():
+    reqs = RequestParam("sample_dataset/data.csv")
+    data = reqs.request_key_value("Name")
+    print(data)
+
+test()
+```
