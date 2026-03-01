@@ -5,20 +5,16 @@ APIFY-Go allows you to deploy custom Python scripts built with FastAPI, instantl
 ---
 
 ### APIFY-Go features
-1. High-Performance Asynchronous Framework: Built for speed, handles requests efficiently, making it ideal for serving data quickly in a cloud environment.
-2. You can easily integrate Apify's Dataset storage to save and retrieve your JSON dictionaries across different API requests.
-3. Handles API requests quickly and efficiently.
-4. Apify-go runs everything for you; you just focus on your code.
-5. Automatically creates a web page to test your API.
+- 💻 Built for speed, handles requests efficiently, making it ideal for serving data quickly in a cloud environment.
+- 💻 You can easily integrate Apify's Dataset storage to save and retrieve your JSON dictionaries across different API requests.
+- 💻 Handles API requests quickly and efficiently.
+- 💻 Apify-go runs everything for you; you just focus on your code.
+- 💻 Automatically creates a web page to test your API.
+- 💻 Can be used as backend API for Flask
 
 ### Usage
 ```bash
 git clone https://github.com/mhennn/APIFY-Go
-```
-
-### API Documentation
-```bash
-https://documenter.getpostman.com/view/51479109/2sBXcHieYq
 ```
 
 ### Data Structural Application
@@ -26,32 +22,36 @@ https://documenter.getpostman.com/view/51479109/2sBXcHieYq
 ```bash
 utils/data.py
 ```
-2. Test the program
+2. Run the program
 ```bash
-uvicorn apiFy:app --reload
-```
-
-### Getting of Data
-```bash
-def request_simple_data(self):
-    return self.reqs_data.simple_data()
-
-def request_key_value(self, params=None):
-    return self.reqs_data.key_value(params)
+python apiFy.py
 ```
 
 ### Design Flow
 ```mermaid
 graph LR
-    A[Load your csv data on <br/>sample_dataset/data.csv] --> B[Run: uvicorn apiFy:app --reload]
-    B --> C(Initialize Class<br/>RequestParam)
+    A[Load your csv data on <br/>sample_dataset/data.csv] --> B[Run the Program <br/> apiFy.py]
+    B --> C(Initialize Class:<br/>RequestParam on your 'Main.py')
 ```
 
-### Ideal Usage
-The program is design for simple dataset with no nested dict, but can be expanded.
-
-### Testing the API
+##### RequestParams has two(2) methods:
 ```bash
+def request_simple_data(self):
+    return self.reqs_data.simple_data()
+
+>>> This can be used to get all the available data from your dataset
+```
+```bash
+def request_key_value(self, params=None):
+    return self.reqs_data.key_value(params)
+
+>>> This can be used to get the value based on your set key
+```
+
+##### Testing the API
+
+```bash
+>>> test_file/test.py
 from request_module.request_params import RequestParam
 
 def test_all():
@@ -66,6 +66,7 @@ def test_key():
 
 print(test_key())
 print(test_all())
+
 ```
 ##### Output Test
 ```bash

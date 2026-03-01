@@ -1,12 +1,9 @@
 from fastapi import FastAPI
 from request_module.request_params import RequestParam
+import uvicorn
 
-app = FastAPI(debug=True)
+app = FastAPI()
 reqParams = RequestParam()
-
-def path():
-    data_path = "sample_dataset/data.csv"
-    return data_path
 
 @app.get('/')
 def home():
@@ -20,8 +17,13 @@ def home():
 
 @app.get('/simpleData')
 def simple_data():
-    return reqParams.request_simple_data()
+    all_data = reqParams.request_simple_data()
+    return all_data
 
 @app.get('/keyValue/')
 def key_value():
-    return reqParams.request_key_value()
+    key_value_data = reqParams.request_key_value()
+    return key_value_data
+
+if __name__ == "__main__":
+    uvicorn.run("apiFy:app", reload=True)
