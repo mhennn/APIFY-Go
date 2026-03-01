@@ -12,7 +12,7 @@ def test_all():
 
 def test_key():
     reqs = RequestParam("./sample_dataset/data.csv")
-    data = reqs.request_key_value("Email")
+    data = reqs.request_key_value("Role")
     return data
 
 print(test_key())

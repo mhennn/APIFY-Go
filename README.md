@@ -60,6 +60,6 @@ print(test_all())
 ```
 ##### Output Test
 ```bash
-{'detail': 'Email not found'}
+['Developer', 'Strategist', 'Analyst', 'Designer']
 ['Johnson', 'Smith', 'Davis', 'Evans']
 ```
